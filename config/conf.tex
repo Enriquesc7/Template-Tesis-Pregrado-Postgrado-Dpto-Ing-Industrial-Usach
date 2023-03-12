@@ -1,0 +1,80 @@
+% RENOMBRANDO
+
+% Indices renombrados
+% Renombrnado el indice general a 'TABLA DE CONTENIDOS'
+\renewcommand{\contentsname}{\hfill\large TABLA DE CONTENIDOS\hfill}
+% Ajustando el espaciado vertical (despes del titulo)
+\makeatletter
+\patchcmd{\tableofcontents}{\@starttoc}{\vspace{-10pt}\@starttoc}{}{}
+\makeatother
+
+% Renombrando el indice de figuras 
+\renewcommand{\listfigurename}{\hfill\large INDICE DE FIGURAS\hfill}
+% Ajustando el espaciado vertical (despues del titulo)
+%\makeatletter
+%\patchcmd{\listoffigures}{\@starttoc}%{\vspace{0pt}\@starttoc}{}{}
+%\makeatother
+
+% Renombrando el indice de tablas
+\renewcommand{\listtablename}{\hfill\large INDICE DE TABLAS\hfill}
+% Ajustando el espaciado vertical (despues del titulo)
+%\makeatletter
+%\patchcmd{\listoftables}{\@starttoc}{\vspace{0pt}\@starttoc}{}{}
+%\makeatother
+
+% Renombrando la bibliografía
+\renewcommand{\bibname}{\large REFERENCIAS BIBLIOGRAFICAS}
+%------------------------------------------------------------------
+% Estableciendo terminaciones de las referencias bibliograficas
+%\renewcommand{\BOthers}[1]{et al.\hbox{}}
+%\renewcommand{\BAvailFrom}[1]{Recuperado de\hbox{}}
+%\renewcommand{\BRetrievedFrom}[1]{Recuperado de }
+%\renewcommand{\BRetrieved}[1]{}
+%------------------------------------------------------------------
+
+% Configurando el tamaño de titulos de capítulos y subcapítulos
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat{name=\chapter}[display]{\large\bfseries}{\thechapter}{10pt}{\large}
+% Ajustando el espacio vertical superior (-20pt) y el espacio vertical inferior (-15pt) de los capítulos
+\titlespacing*{\chapter}{0pt}{-20pt}{15pt}
+
+
+% Creamos contadores para los capítulos
+\newcounter{cap1}
+\newcounter{cap2}
+\newcounter{cap3}
+\newcounter{cap4}
+\newcounter{cap5}
+\newcounter{cap6}
+% Creamos los contadores para las figuras y tablas
+\newcounter{figura}
+\newcounter{tabla}
+
+% Inicializamos los contadores con su valor respectivo
+% Capitulos
+\setcounter{cap1}{1}
+\setcounter{cap2}{2}
+\setcounter{cap3}{3}
+\setcounter{cap4}{4}
+\setcounter{cap5}{5}
+\setcounter{cap6}{6}
+% Figuras y Tablas
+\setcounter{figura}{1}
+\setcounter{tabla}{1}
+
+% Configurando caption (titulo figuras y tablas)
+\captionsetup{format=custom}
+
+% Configurando el espaciado entre "itemize/enumerate items"
+\setlist[itemize]{noitemsep, topsep=3mm}
+\setlist[enumerate]{noitemsep, topsep=3mm}
+
+% Espacios entre autores en "Bibliografia"
+%\let\OLDthebibliography\thebibliography
+%\renewcommand\thebibliography[1]{
+%  \OLDthebibliography{#1}
+%  \setlength{\parskip}{3mm}
+%  \setlength{\itemsep}{3mm plus 0.3ex}
+%}

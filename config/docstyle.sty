@@ -1,0 +1,41 @@
+% Creamos nuestro paquete "docstyle"
+\ProvidesPackage{docstyle}
+%------------------------------------------------------------------------
+% Estableciendo comandos nuevos para la portada
+\newcommand\nombreUniversidad{UNIVERSIDAD DE SANTIAGO DE CHILE}
+\newcommand\nombreFacultad{FACULTAD DE INGENIERÍA}
+\newcommand\nombreCarrera{Departamento de Ingeniería Industrial}
+
+\newcommand\nombreProyecto{TITULO DEL PROYECTO DE TESIS}
+
+\newcommand\nombreAutorUno{NOMBRES Y APELLIDOS AUTOR 1}
+\newcommand\nombreAutorDos{NOMBRES Y APELLIDOS AUTOR 2}
+
+\newcommand\nombreTutor{PROFESOR GUÍA: NOMBRE APELLIDO1 APELLIDO2}
+
+\newcommand\grado{TESIS DE GRADO PRESENTADA EN CONFORMIDAD A LOS REQUISITOS PARA OBTENER EL TITULO/GRADO ACADEMICO DE INGENIERÍA/MAGISTER EN...}
+
+\newcommand\nombreCiudadPais{SANTIAGO - CHILE}
+\newcommand\fecha{2023}
+%------------------------------------------------------------------------
+
+% Cambiamos el tipo de letra por default a Helvetica (arial)
+\renewcommand*\familydefault{\sfdefault}
+% Definimos un interlineado de 1.5
+\renewcommand{\baselinestretch}{1.5}
+% Quitamos la sangria de los parrafos
+\setlength{\parindent}{0cm}
+% Establecemos una separación de 0.8mm entre parrafos
+\setlength{\parskip}{0.8mm}
+
+% Determinamos el estilo de pagina para la numeración de las mismas
+\pagestyle{fancy}
+% Indicamos que el estilo de pagina es igual para pares e impares
+\fancypagestyle{plain}{}
+\fancyhf{}
+% Quitamos la linea del encabezado 
+\renewcommand{\headrulewidth}{0pt}
+% Indicamos que los numeros de pagina serán a la derecha
+\rfoot{\thepage}
+
+

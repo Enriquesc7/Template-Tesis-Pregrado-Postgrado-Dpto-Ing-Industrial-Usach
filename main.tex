@@ -1,0 +1,169 @@
+% Template Tesis Pregrado/Postgrado de la Facultad de
+% Ingenieria de la Universidad de Santiago de Chile
+
+% Autor: Alfonso Suárez Cornejo
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+
+% IMPORTACIÓN DE PAQUETES
+
+% Clase de documento, formato libro.
+\documentclass[a4paper,10pt,openany,oneside]{book}
+% Documento configurado para imprimir a una cara (oneside), para cambiar a impresión por 2 caras modificar a "twoside".
+
+% Paquete para el soporte de idiomas.
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[utf8]{inputenc}
+
+% Paquete para la manipulación de imágenes.
+\usepackage{graphicx}
+
+% Paquete para la referencias links y marcadores en el menu del pdf
+\usepackage[bookmarksnumbered,bookmarksopen=false]{hyperref}
+
+% Paquete para agregar "custom" bookmarks
+\usepackage{bookmark}
+
+% Márgenes de la hoja
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=4cm,right=2.5cm]{geometry}
+\newgeometry{top=2.5cm,bottom=2.5cm,left=4cm,right=2.5cm}
+
+% Paquete para encabezados o pies de página.
+\usepackage{fancyhdr}
+
+% Paquete para la prevensión de aparición 
+% de pies de página, encabezados y numeración.
+\usepackage{emptypage}
+
+% Paquete para la adecuación de cuadros y tablas.
+\usepackage{float}
+
+% Paquete que permite la construcción de tablas
+% que abarquen mas de una página.
+\usepackage{longtable}
+
+% Paquete para mejorar la compatibilidad en la manipulación de comillas y citas en diferentes idiomas (biblatex)
+\usepackage{csquotes}
+
+% Paquete que ofrece el soporte de citación estilo APA.
+\usepackage[style=apa, backend=biber, maxcitenames=3, maxbibnames=10, maxnames=10, minnames=3]{biblatex}
+\addbibresource{referencias.bib}
+% El argumento 'maxcitenames' nos permite indicar el número maximo de autores en texto, es decir, que si la referencia tiene 4 o más autores aparecera et al.
+% El argumento 'maxbibnames' nos permite indicar el número maximo de autores en "REFERENCIAS BIBLIOGRAFICAS", En APA 7ma edición se deben escribir todos los autores, por lo que para evitar que no ocurra tiene valor de 10 (en caso de tener referencias de más autores, aumentar el valor).
+
+% Paquetes para el uso de fórmulas matemáticas.
+\usepackage{amsmath, amsthm, amssymb}
+
+% Paquete para la inclusión de Anexos
+\usepackage{appendix}
+
+% Paquete para la graficación
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+% Paquete para el espaciado automático entre párrafos
+% ya no es necesario el "//"
+\usepackage{parskip}
+
+% Paquete para espaciar el titulo de las tablas 
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Paquete para eliminar los espacios en blanco 
+% entre titulos/subtitulos/etc.
+\usepackage[compact]{titlesec}
+
+% Paquete pora importar de forma anidada
+\usepackage{import}
+
+% Paquete que simplifica la notación de unidades físicas medidas etc 
+\usepackage{siunitx}
+
+% Paquete para la configuración de listas
+\usepackage{enumitem}
+
+% Paquete para modificar el comportamiento de los listings
+\usepackage{listings}
+
+% Paquete para el manejo de colores
+\usepackage{xcolor}
+
+% Llamamos nuestro paquete "docstyle" de la carpeta config
+\usepackage{config/docstyle}
+
+% Paquete que nos ayuda a evitar los cortes de palabras
+\usepackage[none]{hyphenat}
+
+% Paquete para controlar el interlineado del documento
+\usepackage{setspace}
+
+% Declaramos nuestro propio caption (titulo tablas y figuras)
+\DeclareCaptionFormat{custom}{\textit{\small#1#2}\textit{\small#3}}
+
+% Paquete para el estilo de letra Helvetica (reemplazo de arial)
+\usepackage{helvet}
+
+% Paquete que permite modificar el formato de titulo de capítulos, secciones y subsecciones.
+% Probamos este
+\usepackage{titletoc}
+\usepackage{titlesec}
+
+% Quitamos la numeración de las secciones. 
+\setcounter{secnumdepth}{0}
+% Aseguramos que aparecerán las subsubsecciones en la tabla de contenidos
+\setcounter{tocdepth}{3}
+
+% Configuración de la bibliografia para establecer el 'Recuperado de' los enlaces en las referencias bibliograficas. 
+\DeclareFieldFormat{url}{\bibstring{retrieved}\addspace\bibstring{from}\space\url{#1}}
+\DeclareFieldFormat{doi}{\bibstring{retrieved}\addspace\bibstring{from}\space\url{https://doi.org/#1}}
+\DefineBibliographyStrings{spanish}{
+  retrieved = {Recuperado},
+  from = {de}
+}
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+
+% CUERPO TESIS
+
+\raggedbottom\begin{document}
+    \include{config/conf.tex}
+    \include{portada.tex}
+    %vspace{-40pt}
+    \frontmatter\pagenumbering{roman}
+        \include{contenido_inicial/resumen.tex}
+        % No incluir '\include{contenido_inicial/abstract.tex}' en caso de ser tesis de pregrado.
+        \include{contenido_inicial/abstract.tex}
+        \include{contenido_inicial/dedicatoria.tex}
+        \include{contenido_inicial/agradecimientos.tex}
+        % Insertamos los indices
+        \tableofcontents
+        \clearpage % Evitamos juntar la tabla de contenidos con los otros indices. 
+        \listoffigures
+        \listoftables
+      
+        
+    \mainmatter
+        
+        \include{cuerpo_tesis/capitulo_I.tex}
+        \include{cuerpo_tesis/capitulo_II.tex}
+        \include{cuerpo_tesis/capitulo_III.tex}
+        \include{cuerpo_tesis/capitulo_IV.tex}
+        \include{cuerpo_tesis/capitulo_V.tex}
+        \include{cuerpo_tesis/conclusiones.tex}
+        
+    {
+        \backmatter
+        \printbibliography
+    }
+
+    \appendix
+    \begin{appendices}
+        \include{cuerpo_tesis/anexos.tex}
+    \end{appendices}
+    % \clearpage
+    % \addappheadtotoc
+    % \appendixpage
+\end{document}
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
