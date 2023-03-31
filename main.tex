@@ -121,6 +121,28 @@
   from = {de}
 }
 
+
+% Paquete microtype en LaTeX es una herramienta potente que mejora la tipografía de tu documento al ajustar automáticamente el espaciado entre letras (kerning), las palabras (spacing) y la alineación de las líneas en un párrafo
+\usepackage{microtype}
+\microtypesetup{
+  activate={true,nocompatibility},
+  final,
+  tracking=true,
+  kerning=true,
+  spacing=true,
+  factor=1100,
+  stretch=50,
+  shrink=50
+}
+% - activate={true,nocompatibility}: Activa el ajuste automático de espaciado y kerning. La opción nocompatibility garantiza que las mejoras de tipografía se apliquen incluso si se usan otros paquetes que podrían interferir con microtype.
+% - final: Asegura que las mejoras de tipografía se apliquen en el documento final. Si utilizas la opción draft en lugar de final, las mejoras no se aplicarán, lo que podría ser útil para reducir el tiempo de compilación durante la edición del documento.
+% - tracking=true: Activa el ajuste del espacio entre letras.
+% - kerning=true: Activa el ajuste de kerning (espacio entre pares de letras específicos).
+% - spacing=true: Activa el ajuste de espaciado entre palabras.
+% - factor=1100: Ajusta el factor de estiramiento/encogimiento. Valores más altos permiten menos ajuste y viceversa. El valor predeterminado es 1000.
+% - stretch=50: Establece la cantidad máxima (en unidades de mil) que se puede estirar el espacio entre palabras en una línea. El valor predeterminado es 20.
+% - shrink=50: Establece la cantidad máxima (en unidades de mil) que se puede reducir el espacio entre palabras en una línea. El valor predeterminado es 20.
+
 %-----------------------------------------------------------------------------------------------------------------------------------------
 
 % CUERPO TESIS
